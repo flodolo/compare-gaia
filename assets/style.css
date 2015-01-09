@@ -1,0 +1,7 @@
+.table-auto {
+    width: auto;
+}
+
+.table-auto td {
+    text-align: right;
+}
