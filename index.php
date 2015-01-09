@@ -58,6 +58,7 @@ function compareVersions($base, $tmx_base, $new, $tmx_new) {
     // Count strings
     $total_base = count($tmx_base);
     $total_new = count($tmx_new);
+    $growth = round(($total_new - $total_base) / $total_base * 100, 2);
     $added_strings = count(array_diff($tmx_new, $tmx_base));
     $removed_strings = count(array_diff($tmx_base, $tmx_new));
     $common_strings = array_intersect($tmx_base, $tmx_new);
@@ -80,7 +81,7 @@ function compareVersions($base, $tmx_base, $new, $tmx_new) {
                    "    </tr>\n" .
                    "    <tr>\n" .
                    "      <th scope='row'>Number of strings in {$new}</th>\n" .
-                   "      <td>{$total_new}</td>\n" .
+                   "      <td>{$total_new}<br/><small>+{$growth}%</small></td>\n" .
                    "    </tr>\n" .
                    "    <tr>\n" .
                    "      <th scope='row'>Added strings</th>\n" .
@@ -92,7 +93,7 @@ function compareVersions($base, $tmx_base, $new, $tmx_new) {
                    "    </tr>\n" .
                    "    <tr>\n" .
                    "      <th scope='row'>Common strings</th>\n" .
-                   "      <td>" . count($common_strings) . "<br/><small>({$common_perc}% of {$new} strings)</small></td>\n" .
+                   "      <td>" . count($common_strings) . "<br/><small>{$common_perc}% of {$new} strings</small></td>\n" .
                    "    </tr>\n" .
                    "  </tbody>\n" .
                    "</table>\n" .
