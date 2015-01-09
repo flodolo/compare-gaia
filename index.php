@@ -6,9 +6,9 @@ function extractFileNames($tmx) {
     foreach ($tmx as $key => $value) {
         $file_name = [];
         if (preg_match('/^.*:/', $key, $file_name)) {
-            $tmp_file = rtrim($file_name[0], ':');
-            if (! in_array($tmp_file, $files)) {
-                array_push($files, $tmp_file);
+            $tmp_file_name = rtrim($file_name[0], ':');
+            if (! in_array($tmp_file_name, $files)) {
+                array_push($files, $tmp_file_name);
             }
         }
     }
@@ -144,6 +144,9 @@ $new = isset($_GET['new']) ? $_GET['new'] : '2.0';
 $html_output = '';
 
 $versions = [
+    '1.1',
+    '1.2',
+    '1.3',
     '1.4',
     '2.0',
     '2.1',
