@@ -59,10 +59,10 @@ function compareVersions($base, $tmx_base, $new, $tmx_new) {
     $total_base = count($tmx_base);
     $total_new = count($tmx_new);
     $growth = round(($total_new - $total_base) / $total_base * 100, 2);
-    $added_strings = count(array_diff($tmx_new, $tmx_base));
-    $removed_strings = count(array_diff($tmx_base, $tmx_new));
-    $common_strings = array_intersect($tmx_base, $tmx_new);
-    $common_perc = round(count($common_strings) / $total_new * 100, 2);
+    $added_strings = count(array_diff_key($tmx_new, $tmx_base));
+    $removed_strings = count(array_diff_key($tmx_base, $tmx_new));
+    $common_strings = count(array_intersect_key($tmx_base, $tmx_new));
+    $common_perc = round($common_strings / $total_new * 100, 2);
 
     /* Create a list of files. Make sure that we have all files, some can be
      * added or removed in one version
@@ -93,7 +93,7 @@ function compareVersions($base, $tmx_base, $new, $tmx_new) {
                    "    </tr>\n" .
                    "    <tr>\n" .
                    "      <th scope='row'>Common strings</th>\n" .
-                   "      <td>" . count($common_strings) . "<br/><small>{$common_perc}% of {$new} strings</small></td>\n" .
+                   "      <td>{$common_strings}<br/><small>{$common_perc}% of {$new} strings</small></td>\n" .
                    "    </tr>\n" .
                    "  </tbody>\n" .
                    "</table>\n" .
