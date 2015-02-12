@@ -140,8 +140,8 @@ function compareVersions($base, $tmx_base, $new, $tmx_new) {
 }
 
 // Read form parameters
-$base = isset($_GET['base']) ? $_GET['base'] : '1.4';
-$new = isset($_GET['new']) ? $_GET['new'] : '2.0';
+$base = isset($_GET['base']) ? $_GET['base'] : '2.1';
+$new = isset($_GET['new']) ? $_GET['new'] : '2.2';
 $html_output = '';
 
 $versions = [
@@ -151,18 +151,19 @@ $versions = [
     '1.4',
     '2.0',
     '2.1',
-    'master',
+    '2.2',
+    'master'
 ];
 
 // Make sure we have valid data
 $errors = '';
 if (! in_array($base, $versions)) {
-    $errors .= '<p>Requested version ' . $base . ' not available. Reset to default (1.4)</p>';
-    $base = '1.4';
+    $errors .= '<p>Requested version ' . $base . ' not available. Reset to default (2.1)</p>';
+    $base = '2.1';
 }
 if (! in_array($new, $versions)) {
-    $errors .= '<p>Requested version ' . $new  . ' not available. Reset to default (2.0)</p>';
-    $new = '2.0';
+    $errors .= '<p>Requested version ' . $new  . ' not available. Reset to default (2.2)</p>';
+    $new = '2.2';
 }
 
 // Create values for selects used in form
