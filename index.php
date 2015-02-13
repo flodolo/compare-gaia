@@ -1,6 +1,7 @@
 <?php
 
-function extractFileNames($tmx) {
+function extractFileNames($tmx)
+{
     // Keys are named like 'shared/date/date.properties:minutes-until-long[one]'
     $files = [];
     foreach ($tmx as $key => $value) {
@@ -17,7 +18,8 @@ function extractFileNames($tmx) {
     return $files;
 }
 
-function compareSingleFile($file_name, $tmx_base, $tmx_new) {
+function compareSingleFile($file_name, $tmx_base, $tmx_new)
+{
     $strings_base = [];
     $strings_new = [];
     $results = [
@@ -54,7 +56,8 @@ function compareSingleFile($file_name, $tmx_base, $tmx_new) {
     return $results;
 }
 
-function compareVersions($base, $tmx_base, $new, $tmx_new) {
+function compareVersions($base, $tmx_base, $new, $tmx_new)
+{
     // Count strings
     $total_base = count($tmx_base);
     $total_new = count($tmx_new);
@@ -152,7 +155,7 @@ $versions = [
     '2.0',
     '2.1',
     '2.2',
-    'master'
+    'master',
 ];
 
 // Make sure we have valid data
@@ -178,11 +181,11 @@ foreach ($versions as $version) {
 
 $tmx_comparison = [];
 // Import TMX base
-include('data/gaia_' . str_replace('.', '_', $base) . '.php');
+include 'data/gaia_' . str_replace('.', '_', $base) . '.php';
 $tmx_comparison['base'] = $tmx;
 unset($tmx);
 // Import TMX new
-include('data/gaia_' . str_replace('.', '_', $new) . '.php');
+include 'data/gaia_' . str_replace('.', '_', $new) . '.php';
 $tmx_comparison['new'] = $tmx;
 unset($tmx);
 
@@ -204,7 +207,8 @@ $html_output .= compareVersions($base, $tmx_comparison['base'], $new, $tmx_compa
     <div class="container">
         <h1>Gaia Comparison</h1>
         <?php
-        if ($errors) { ?>
+        if ($errors) {
+            ?>
         <div class="panel panel-danger">
             <div class="panel-heading">
                 <h3 class="panel-title">Version Error</h3>
@@ -214,6 +218,7 @@ $html_output .= compareVersions($base, $tmx_comparison['base'], $new, $tmx_compa
             </div>
         </div>
         <?php
+
         }
         ?>
         <form class="form-horizontal" action="" method="get">
