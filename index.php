@@ -84,7 +84,7 @@ function compareVersions($base, $tmx_base, $new, $tmx_new)
                    "    </tr>\n" .
                    "    <tr>\n" .
                    "      <th scope='row'>Number of strings in {$new}</th>\n" .
-                   "      <td>{$total_new}<br/><small>+{$growth}%</small></td>\n" .
+                   "      <td>{$total_new}<br/><small>{$growth}%</small></td>\n" .
                    "    </tr>\n" .
                    "    <tr>\n" .
                    "      <th scope='row'>Added strings</th>\n" .
