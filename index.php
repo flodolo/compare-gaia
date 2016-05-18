@@ -143,8 +143,8 @@ function compareVersions($base, $tmx_base, $new, $tmx_new)
 }
 
 // Read form parameters
-$base = isset($_GET['base']) ? $_GET['base'] : '2.1';
-$new = isset($_GET['new']) ? $_GET['new'] : '2.2';
+$base = isset($_GET['base']) ? htmlspecialchars($_GET['base']) : '2.1';
+$new = isset($_GET['new']) ? htmlspecialchars($_GET['new']) : '2.2';
 $html_output = '';
 
 $versions = [
